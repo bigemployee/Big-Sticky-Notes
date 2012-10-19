@@ -36,6 +36,7 @@ Database
 --------
 Create Database and run the following query to create the table and insert
 sample data.
+
     -- -----------------------------------------------------
     -- Table `stickynotes`.`stickynotes`
     -- -----------------------------------------------------
@@ -60,6 +61,7 @@ open config/autoload/global.php and config/autoload/local.php and configure
 your Database credentials.
 
 if local.php is missing duplicate local.php.dist and modify the file
+
     // /config/autoload/local.php
     return array(
         'db' => array(
