@@ -12,41 +12,22 @@ Installation
 
 Using Composer (recommended)
 ----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
-
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project --repository-url="http://packages.zendframework.com" zendframework/skeleton-application path/to/install
-
-Alternately, clone the repository and manually invoke `composer` using the shipped
+Clone the repository and manually invoke `composer` using the shipped
 `composer.phar`:
 
     cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
+    git://github.com/bigemployee/Big-Sticky-Notes.git
+    cd Big-Sticky-Notes
     php composer.phar self-update
     php composer.phar install
 
 (The `self-update` directive is to ensure you have an up-to-date `composer.phar`
 available.)
 
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
-
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-
-You would then invoke `composer` to install dependencies per the previous
-example.
-
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
-
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
-
-Database Table
+Database
 --------
+Create Database and run the following query to create the table and insert
+sample data.
 -- -----------------------------------------------------
 -- Table `stickynotes`.`stickynotes`
 -- -----------------------------------------------------
@@ -66,6 +47,18 @@ USE `stickynotes`;
 INSERT INTO `stickynotes`.`stickynotes` (`id`, `note`, `created`) VALUES (1, 'This is a sticky note you can type and edit.', '');
 INSERT INTO `stickynotes`.`stickynotes` (`id`, `note`, `created`) VALUES (NULL, 'This is another sticky note ', NULL);
 COMMIT;
+
+open config/autoload/global.php and config/autoload/local.php and configure
+your Database credentials.
+
+if local.php is missing duplicate local.php.dist and modify the file
+`// /config/autoload/local.php
+return array(
+    'db' => array(
+        'username' => 'DB_User_Name',
+        'password' => 'DB_Password',
+    ),
+);`
 
 Virtual Host
 ------------
