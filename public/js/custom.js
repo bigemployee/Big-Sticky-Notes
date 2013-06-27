@@ -22,7 +22,7 @@ jQuery(function($) {
         var remove_id = $(this).attr('id');
         remove_id = remove_id.replace("remove-","");
 
-        $.post("/stickynotes/remove", {
+        $.post("stickynotes/remove", {
             id: remove_id
         },
         function(data){
